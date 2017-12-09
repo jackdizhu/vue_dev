@@ -1,30 +1,12 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
-  data: () => {
-    return {}
-  },
-  // 父组件数据
-  props: [],
-  // 组件
-  components: {},
-  // 计算
-  computed: {},
-  // 数据监听
-  watch: {},
-  // 事件方法
-  methods: {},
-  // 创建完毕
-  created: () => {
-    console.log('created')
-  }
+  name: 'app'
 }
 </script>
 
