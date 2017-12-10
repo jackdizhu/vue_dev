@@ -1,4 +1,4 @@
-let apiEnv, apiRoot
+let config, host
 
 let useLocalMock = false
 
@@ -9,47 +9,27 @@ let prodUrl = '/api'
 // 测试环境
 let testUrl = '/api'
 // 模拟环境
-let mockUrl = '/mock/service2/'
+let mockUrl = 'http://127.0.0.1:7300/mock/5a2bc96a0992fd3af87447f1/test1'
 
-apiEnv = {
+config = {
   'dev': {
-    webURL: devUrl,
+    apiHost: devUrl,
     imgURI: 'http://218.17.30.29:8081/'
   },
   'prod': {
-    webURL: prodUrl,
+    apiHost: prodUrl,
     imgURI: 'http://218.17.30.29:8081/'
   },
   'test': {
-    webURL: testUrl,
+    apiHost: testUrl,
     imgURI: 'http://218.17.30.29:8081/'
   },
   'mock': {
-    webURL: mockUrl,
+    apiHost: mockUrl,
     imgURI: 'http://218.17.30.29:8081/'
   }
 }
 
-switch (window.location.host) {
-  case 'localhost:8088':
-    if (useLocalMock) {
-      apiRoot = apiEnv.mock
-    } else {
-      apiRoot = apiEnv.dev
-    }
-    break
-  case '192.168.199.244:8088':
-    if (useLocalMock) {
-      apiRoot = apiEnv.mock
-    } else {
-      apiRoot = apiEnv.dev
-    }
-    break
-  default:
-    apiRoot = {
-      webURL: window.location.protocol + '//' + window.location.host,
-      imgURI: window.location.protocol + '//' + window.location.host + '/'
-    }
-}
+host = config.mock
 
-export {apiRoot, useLocalMock}
+export default {host}

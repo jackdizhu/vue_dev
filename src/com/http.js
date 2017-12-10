@@ -8,18 +8,27 @@ axios.defaults.httpsAgent = new https.Agent({
   rejectUnauthorized: false
 })
 var qs = require('qs')
-// http request 拦截器
+// http request 请求 拦截器
 axios.interceptors.request.use(
-  request => {
-    return request
+  config => {
+    return config
   },
   err => {
-    if (err === 'session.timeout') {
-      console.log('网络不稳定，请检查您的网络，确保网络畅通。1')
-    } else {
-      console.log(err)
-    }
     return Promise.reject(err)
+  })
+// http response 响应 拦截器
+axios.interceptors.response.use(
+  res => {
+    let _data = res.data
+    if (_data) {
+      return Promise.resolve(_data)
+    }
+    console.log(res, '响应异常 ----------- http response 响应 拦截器')
+    return Promise.resolve({})
+  },
+  err => {
+    console.log(err, '请求异常 ----------- http response 响应 拦截器')
+    return Promise.resolve({})
   })
 
 /**
@@ -32,8 +41,8 @@ export function get (url, params = {}) {
   return new Promise((resolve, reject) => {
     axios.get(url, {
       params: params
-    }).then(response => {
-      resolve(response)
+    }).then(res => {
+      resolve(res)
     }, err => {
       reject(err)
     }).catch(err => {
@@ -51,14 +60,14 @@ export function get (url, params = {}) {
 export function post (url, data = {}) {
   return new Promise((resolve, reject) => {
     axios.post(url, qs.stringify(data), {
-      cancelToken: new axios.CancelToken(function executor (c) {
-        postCancel = c
-      })
-    }).then(response => {
-      resolve(response)
+      // cancelToken: new axios.CancelToken(function executor (c) {
+      //   postCancel = c
+      // })
+    }).then(res => {
+      resolve(res)
     }, err => {
       reject(err)
-    }).catch(thrown => {
+    }).catch(err => {
       reject(err)
     })
   })

@@ -13,10 +13,11 @@ module.exports = {
     // 代理
     proxyTable: {
         '/api/**': {
-        target: 'http://172.0.0.1:8888',
-        changeOrigin: true,
+        target: 'http://127.0.0.1:7300/mock/5a2bc96a0992fd3af87447f1/test1',
+        changeOrigin: false,
         pathRewrite: {
-        '^/api': ''
+        // url 重写
+        // '^/api': ''
         }
       }
     },
@@ -29,10 +30,10 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    // Use Eslint Loader?
+    // Use Eslint Loader? 语法规范  检测
     // If true, your code will be linted during bundling and
     // linting errors and warnings will be shown in the console.
-    useEslint: true,
+    useEslint: false,
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
