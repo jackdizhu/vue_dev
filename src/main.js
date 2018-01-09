@@ -6,6 +6,8 @@ import Router from 'vue-router'
 import router from './router'
 import Http from './com/http.js'
 import Api from './com/api.js'
+
+import '@/less/com.less'
 // import config from './com/config.js'
 
 // 使用 路由

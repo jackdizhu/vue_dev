@@ -1,6 +1,19 @@
 <template>
-  <div>
-    <!--<img :src="logo">-->
+  <div class="flex items-center content-center justify-center">
+    <div class="link">
+      <p>
+        <router-link to="/page/VModelTest">v-model 组件 双向绑定</router-link>
+      </p>
+      <p>
+        <router-link to="/page/VAwesomeSwiper">活动广告 轮播</router-link>
+      </p>
+      <p>
+        <router-link to="/page/VAwesomeSwiper2">广告图 轮播</router-link>
+      </p>
+    </div>
+    <div class="page">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -40,13 +53,19 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="less" scoped>
+  .link{
+    text-align: left;
+    width: 25%;
+    font-size: 1.4rem;
+  }
+  .page{
+    width: 75%;
+    background: #f5f7f9;
+  }
+  .link,
+  .page{
+    padding: .5rem;
+    min-height: 40rem;
+  }
 </style>

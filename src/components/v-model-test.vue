@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="v-model-test">
     <p>
-      {{num}}
+      v-model-test: num {{num}}
     </p>
     <p>
       <span @click="prev()">加</span>
@@ -47,6 +47,10 @@
   }
 </script>
 
-<style lang="stylus" type="text/stylus" scoped>
-
+<style lang="less" scoped>
+  .v-model-test{
+    span{
+      cursor: pointer;
+    }
+  }
 </style>

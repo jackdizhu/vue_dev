@@ -5,7 +5,6 @@
       <!-- slides -->
       <swiper-slide class="text-deep-orange-6" v-for="(item, key) in list" :key="key">
         <div @click="handleLinkClick(item.link)">
-          <q-icon name="lens" />
           <span>{{item.name}}</span>
         </div>
       </swiper-slide>
@@ -23,14 +22,12 @@
   import 'swiper/dist/css/swiper.css'
 
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
-  import { QIcon } from 'quasar'
 
   export default {
     name: 'v-awesome-swiper',
     components: {
       swiper,
-      swiperSlide,
-      QIcon
+      swiperSlide
     },
     props: ['list'],
     data () {
@@ -43,7 +40,7 @@
           // 轮播 方向
           direction: 'vertical',
           // 一次切换 显示个数
-          slidesPerView: 2,
+          slidesPerView: 1,
           // 异常切换 个数 2 有问题
           slidesPerGroup: 1,
           // 循环轮播
@@ -71,22 +68,20 @@
     }
   }
 </script>
-<style lang="stylus" type="text/stylus" scoped>
-  .swiper-box
-    width 100%
-    height 100%
-    .swiper
-      width 100%
-      height 100%
+<style lang="less" scoped>
+  .swiper-box {
+    width: 100%;
+    height: 100%;
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
     // overflow hidden
-    .swiper-slide
-      width 100%
+    .swiper-slide {
+      width: 100%;
       // height 33px !important
-      line-height 33px
-      cursor pointer
-    .q-icon
-      font-size 10px
-      transform:scale(0.5)
-      margin-top -.2em
-      margin-right 8px
+      line-height: 32px;
+      cursor: pointer;
+    }
+  }
 </style>

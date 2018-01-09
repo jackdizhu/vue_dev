@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <!--<img :src="logo">-->
+    <div class="img-box">
+      <img :src="logo" width="16px">
+    </div>
     <router-view/>
   </div>
 </template>
 
 <script>
-// import logo from '@/assets/logo.png'
+import logo from '@/assets/logo.png'
 
 export default {
   name: 'app',
   data: () => {
-    return {}
+    return {
+      logo: logo
+    }
   },
   // 父组件数据
   props: [],
@@ -25,7 +29,7 @@ export default {
   methods: {},
   // el 和 data 并未初始化
   beforeCreate () {
-    this.$router.push('/index')
+    // this.$router.push('/index')
     console.log('beforeCreate ------------- el 和 data 并未初始化')
   },
   // 完成了 data 数据的初始化，el没有
@@ -43,13 +47,9 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="less" scoped>
+  .img-box{
+    text-align: center;
+    padding: 1rem;
+  }
 </style>
