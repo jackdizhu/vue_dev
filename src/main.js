@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import Router from 'vue-router'
 import router from './router'
-import Http from './com/http.js'
+import { request } from './com/http.js'
 import Api from './com/api.js'
 
 import '@/less/com.less'
@@ -14,7 +14,7 @@ import '@/less/com.less'
 Vue.use(Router)
 
 // Vue.config.productionTip = false
-Vue.prototype.$http = Http
+Vue.prototype.$request = request
 Vue.prototype.$api = Api
 
 /* eslint-disable no-new */

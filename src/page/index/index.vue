@@ -40,7 +40,11 @@ export default {
   },
   // 完成了 data 数据的初始化，el没有
   created() {
-    this.$http.get(this.$api.mock).then(res => {
+    this.$request({
+      url: this.$api.mock,
+      type: 'GET',
+      params: {}
+    }).then(res => {
       console.log(res, 'this.$api.mock')
     })
   },

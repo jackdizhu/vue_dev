@@ -8,28 +8,7 @@ axios.defaults.httpsAgent = new https.Agent({
   rejectUnauthorized: false
 })
 var qs = require('qs')
-// http request 请求 拦截器
-axios.interceptors.request.use(
-  config => {
-    return config
-  },
-  err => {
-    return Promise.reject(err)
-  })
-// http response 响应 拦截器
-axios.interceptors.response.use(
-  res => {
-    let _data = res.data
-    if (_data) {
-      return Promise.resolve(_data)
-    }
-    console.log(res, '响应异常 ----------- http response 响应 拦截器')
-    return Promise.resolve({})
-  },
-  err => {
-    console.log(err, '请求异常 ----------- http response 响应 拦截器')
-    return Promise.resolve({})
-  })
+
 
 /**
  * get 请求方法
@@ -37,7 +16,7 @@ axios.interceptors.response.use(
  * @param params
  * @returns {Promise}
  */
-export function get (url, params = {}) {
+function get (url, params = {}) {
   return new Promise((resolve, reject) => {
     axios.get(url, {
       params: params
@@ -57,13 +36,9 @@ export function get (url, params = {}) {
  * @param data
  * @returns {Promise}
  */
-export function post (url, data = {}) {
+function post (url, data = {}) {
   return new Promise((resolve, reject) => {
-    axios.post(url, qs.stringify(data), {
-      // cancelToken: new axios.CancelToken(function executor (c) {
-      //   postCancel = c
-      // })
-    }).then(res => {
+    axios.post(url, qs.stringify(data)).then(res => {
       resolve(res)
     }, err => {
       reject(err)
@@ -73,4 +48,29 @@ export function post (url, data = {}) {
   })
 }
 
-export default {get, post}
+/**
+ * request 请求方法
+ * @param obj {  url, params, type }
+ * @returns {Promise}
+ */
+function request(obj) {
+  let { url, params, type } = obj
+  return new Promise((resolve, reject) => {
+    let fn;
+    if (type === 'POST') {
+      fn = get
+    } else {
+      fn = post
+    }
+    fn(url, params).then(function (res) {
+      resolve(res)
+    }).catch(err => {
+      let status = (err.response && err.response.status) || 0
+      console.log(status, 'request catch err')
+      resolve({ code: status, err: 'requestErr' })
+      // reject(err) // 返回错误
+    })
+  })
+}
+
+export { request }
