@@ -1,14 +1,14 @@
 import axios from 'axios'
 import https from 'https'
 axios.defaults.timeout = 1000 * 60 * 60
-// axios.defaults.baseURL = config.apiRoot.webURL
+axios.defaults.baseURL = 'http://127.0.0.1:8000/mock/5a522f2eb9574d08787bf76a/app1'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 axios.defaults.withCredentials = true
 axios.defaults.httpsAgent = new https.Agent({
   rejectUnauthorized: false
 })
-var qs = require('qs')
 
+var qs = require('qs')
 
 /**
  * get 请求方法
@@ -58,12 +58,13 @@ function request(obj) {
   return new Promise((resolve, reject) => {
     let fn;
     if (type === 'POST') {
-      fn = get
-    } else {
       fn = post
+    } else {
+      fn = get
     }
     fn(url, params).then(function (res) {
-      resolve(res)
+      let data = res.data || {}
+      resolve(data)
     }).catch(err => {
       let status = (err.response && err.response.status) || 0
       console.log(status, 'request catch err')
