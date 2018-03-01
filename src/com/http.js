@@ -2,7 +2,7 @@ import axios from 'axios'
 import https from 'https'
 axios.defaults.timeout = 1000 * 60 * 60
 axios.defaults.baseURL = 'http://127.0.0.1:8000/mock/5a522f2eb9574d08787bf76a/app1'
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+// axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 axios.defaults.withCredentials = true
 axios.defaults.httpsAgent = new https.Agent({
   rejectUnauthorized: false
@@ -38,7 +38,11 @@ function get (url, params = {}) {
  */
 function post (url, data = {}) {
   return new Promise((resolve, reject) => {
-    axios.post(url, qs.stringify(data)).then(res => {
+    axios.post(url, qs.stringify(data), {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      }
+  }).then(res => {
       resolve(res)
     }, err => {
       reject(err)
