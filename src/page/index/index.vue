@@ -36,10 +36,10 @@ export default {
   // 事件方法
   methods: {},
   // el 和 data 并未初始化
-  beforeCreate() {
+  beforeCreate () {
   },
   // 完成了 data 数据的初始化，el没有
-  created() {
+  created () {
     // get test
     this.$request({
       url: this.$api.mock,
@@ -58,10 +58,10 @@ export default {
     })
   },
   // 完成了 el 和 data 初始化
-  beforeMount() {
+  beforeMount () {
   },
   // 完成挂载
-  mounted() {
+  mounted () {
   }
 }
 </script>

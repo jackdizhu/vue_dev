@@ -41,20 +41,20 @@
           // autoHeight: true,
           // paginationType:"bullets",
           pagination: {
-            el: '.swiper-pagination'
+            el: '.swiper-pagination',
             // 当前状态 分页器 放大
             // ,dynamicBullets: true
             // 进度条样式
             // ,type: 'progressbar'
             // 显示 数字
-            // ,type: 'fraction'
+            // ,type: 'fraction',
             // 自定义 样式
-            ,clickable: true
-            ,renderBullet(index, className) {
+            clickable: true,
+            renderBullet (index, className) {
               return `<span class="${className} swiper-pagination-bullet-custom">${index + 1}</span>`
             }
           },
-          paginationClickable :true,
+          paginationClickable: true,
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'

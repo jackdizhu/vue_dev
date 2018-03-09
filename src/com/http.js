@@ -3,7 +3,7 @@ import https from 'https'
 axios.defaults.timeout = 1000 * 60 * 60
 axios.defaults.baseURL = 'http://127.0.0.1:8000/mock/5a522f2eb9574d08787bf76a/app1'
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
-axios.defaults.withCredentials = true
+// axios.defaults.withCredentials = true // 带cookie 请求
 axios.defaults.httpsAgent = new https.Agent({
   rejectUnauthorized: false
 })
@@ -42,7 +42,7 @@ function post (url, data = {}) {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
       }
-  }).then(res => {
+    }).then(res => {
       resolve(res)
     }, err => {
       reject(err)
@@ -57,10 +57,10 @@ function post (url, data = {}) {
  * @param obj {  url, params, type }
  * @returns {Promise}
  */
-function request(obj) {
+function request (obj) {
   let { url, params, type } = obj
   return new Promise((resolve, reject) => {
-    let fn;
+    let fn = null
     if (type === 'POST') {
       fn = post
     } else {

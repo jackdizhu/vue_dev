@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import VAwesomeSwiper from "@/components/v-awesome-swiper.vue";
+  import VAwesomeSwiper from '@/components/v-awesome-swiper.vue'
   export default {
     components: {
       VAwesomeSwiper
@@ -15,11 +15,11 @@
       return {
         arr: [
           {
-            name:  '12月活动',
+            name: '12月活动',
             link: 'http:127.0.0.1:7300'
           },
           {
-            name:  '1月活动',
+            name: '1月活动',
             link: 'http:127.0.0.1:7300'
           }
         ]

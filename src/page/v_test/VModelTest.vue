@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import VModelTest from "@/components/v-model-test.vue";
+  import VModelTest from '@/components/v-model-test.vue'
   export default {
     components: {
       VModelTest
