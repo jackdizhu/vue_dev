@@ -1,7 +1,7 @@
 import axios from 'axios'
 import https from 'https'
 axios.defaults.timeout = 1000 * 60 * 60
-axios.defaults.baseURL = 'http://127.0.0.1:8000/mock/5a522f2eb9574d08787bf76a/app1'
+axios.defaults.baseURL = 'http://127.0.0.1:8000/mock/5a2de6e2f959662bc4226e12'
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 // axios.defaults.withCredentials = true // 带cookie 请求
 axios.defaults.httpsAgent = new https.Agent({
@@ -78,4 +78,33 @@ function request (obj) {
   })
 }
 
-export { request }
+/*
+  this.$requestAll([
+    this.$request({
+      url: this.$api.mock,
+      type: 'GET',
+      params: {}
+    }),
+    this.$request({
+      url: this.$api.mock,
+      type: 'POST',
+      params: {}
+    })
+  ]).then((arg) => {
+    console.log(arg, '--requestAll--')
+  })
+ */
+function requestAll (_requestArr) {
+  return new Promise((resolve, reject) => {
+    axios.all(_requestArr)
+    .then(axios.spread(function (...params) {
+      resolve(params)
+    })).catch(err => {
+      console.log(err, 'requestAll catch err')
+      resolve({ err: 'requestErr' })
+      // reject(err) // 返回错误
+    })
+  })
+}
+
+export { request, requestAll }

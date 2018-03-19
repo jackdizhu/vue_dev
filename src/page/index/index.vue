@@ -56,6 +56,21 @@ export default {
     }).then(res => {
       console.log(res, 'this.$api.mock')
     })
+
+    this.$requestAll([
+      this.$request({
+        url: this.$api.mock,
+        type: 'GET',
+        params: {}
+      }),
+      this.$request({
+        url: this.$api.mock,
+        type: 'POST',
+        params: {}
+      })
+    ]).then((arg) => {
+      console.log(arg, '--requestAll--')
+    })
   },
   // 完成了 el 和 data 初始化
   beforeMount () {
