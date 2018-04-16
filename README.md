@@ -40,6 +40,24 @@ new PrerenderSpaPlugin(
 )
 ```
 
+/src/static 增加index.html 文件
+``` html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>vue</title>
+  </head>
+  <body>
+
+    <div id="app">
+    </div>
+
+    <script src="/build.js"></script>
+  </body>
+</html>
+```
+
 ## Build Setup
 
 ``` bash
