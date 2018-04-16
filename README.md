@@ -5,7 +5,7 @@
 # preRender
 
 * vue 预渲染
-* <router-view/> 内容不能显示
+* 渲染部分页面 其他页面正常使用 vue Router
 
 ``` sh
 # 预渲染插件
