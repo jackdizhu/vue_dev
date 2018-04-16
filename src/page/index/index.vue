@@ -2,6 +2,9 @@
   <div class="flex items-center content-center justify-center">
     <div class="link">
       <p>
+        <router-link to="/HelloWorld">HelloWorld</router-link>
+      </p>
+      <p>
         <router-link to="/page/VModelTest">v-model 组件 双向绑定</router-link>
       </p>
       <p>

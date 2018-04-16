@@ -2,6 +2,44 @@
 
 > app1 project
 
+# preRender
+
+* vue 预渲染
+* <router-view/> 内容不能显示
+
+``` sh
+# 预渲染插件
+npm install --save prerender-spa-plugin
+# 保持vue-router和vuex存储同步
+npm install --save vuex-router-sync
+# 拷贝文件
+npm install --save copy-webpack-plugin
+# 在PhantomJS中运行Vue
+npm install --save babel-polyfill
+```
+``` js
+// Router 定义
+export default new Router({
+  // mode 定义
+  mode: 'history',
+  routes: []
+})
+// webpack.prod.conf.js 定义
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const PrerenderSpaPlugin = require('prerender-spa-plugin')
+new CopyWebpackPlugin([
+  {
+    from: path.resolve(__dirname, '../static'),
+    to: config.build.assetsSubDirectory,
+    ignore: ['.*']
+  }
+])
+new PrerenderSpaPlugin(
+  path.join(path.resolve(__dirname, '../dist')),
+  [ '/', '/HelloWorld']
+)
+```
+
 ## Build Setup
 
 ``` bash

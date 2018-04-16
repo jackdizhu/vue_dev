@@ -11,6 +11,7 @@ import VAwesomeSwiper2 from '@/page/v_test/VAwesomeSwiper.1.vue'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     // {
     //   path: '/',

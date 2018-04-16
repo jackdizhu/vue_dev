@@ -10,6 +10,11 @@ import Api from './com/api.js'
 import '@/less/com.less'
 // import config from './com/config.js'
 
+import { sync } from 'vuex-router-sync'
+import store from './store'
+
+sync(store, router)
+
 // 使用 路由
 Vue.use(Router)
 

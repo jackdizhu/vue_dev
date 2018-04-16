@@ -15,11 +15,15 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "babel-polyfill": "^6.26.0",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
+    "prerender-spa-plugin": "^3.0.0",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "^3.1.0",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -35,7 +39,7 @@
     "babel-register": "^6.22.0",
     "chalk": "^2.0.1",
     "chromedriver": "^2.27.2",
-    "copy-webpack-plugin": "^4.0.1",
+    "copy-webpack-plugin": "^4.5.1",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.8",
     "eslint": "^3.19.0",
