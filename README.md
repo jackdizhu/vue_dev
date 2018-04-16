@@ -27,6 +27,7 @@ export default new Router({
 // webpack.prod.conf.js 定义
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const PrerenderSpaPlugin = require('prerender-spa-plugin')
+// vue-cli 生成可能已经存在 可以不配置
 new CopyWebpackPlugin([
   {
     from: path.resolve(__dirname, '../static'),
@@ -34,6 +35,7 @@ new CopyWebpackPlugin([
     ignore: ['.*']
   }
 ])
+// 配置需要生成静态页面的 路由
 new PrerenderSpaPlugin(
   path.join(path.resolve(__dirname, '../dist')),
   [ '/', '/HelloWorld']
