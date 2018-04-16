@@ -4,7 +4,7 @@
 
 # preRender
 
-* vue 预渲染
+* vue 预渲染 是通过vuex 数据 以及data数据 提前渲染页面 异步数据不能渲染
 * 渲染部分页面 其他页面正常使用 vue Router
 
 ``` sh

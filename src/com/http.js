@@ -1,7 +1,7 @@
 import axios from 'axios'
 import https from 'https'
 axios.defaults.timeout = 1000 * 60 * 60
-axios.defaults.baseURL = 'http://127.0.0.1:8000/mock/5a2de6e2f959662bc4226e12'
+axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5ab8bf9cca39d01d844c0bf7/test'
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 // axios.defaults.withCredentials = true // 带cookie 请求
 axios.defaults.httpsAgent = new https.Agent({

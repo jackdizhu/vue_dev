@@ -13,6 +13,12 @@
       <p>
         <router-link to="/page/VAwesomeSwiper2">广告图 轮播</router-link>
       </p>
+      <p>GET</p>
+      <p>{{GET}}</p>
+      <p>POST</p>
+      <p>{{POST}}</p>
+      <p>ALL</p>
+      <p>{{ALL}}</p>
     </div>
     <div class="page">
       <router-view/>
@@ -26,7 +32,11 @@
 export default {
   name: 'app',
   data: () => {
-    return {}
+    return {
+      GET: {},
+      POST: {},
+      ALL: []
+    }
   },
   // 父组件数据
   props: [],
@@ -45,33 +55,42 @@ export default {
   created () {
     // get test
     this.$request({
-      url: this.$api.mock,
+      url: this.$api.test_get,
       type: 'GET',
       params: {}
     }).then(res => {
+      let { _id, phone, email, date, name } = res.data
+      this.GET = { _id, phone, email, date, name }
       console.log(res, 'this.$api.mock')
     })
     // post test
     this.$request({
-      url: this.$api.mock,
+      url: this.$api.test_post,
       type: 'POST',
       params: {}
     }).then(res => {
+      let { _id, phone, email, date, name } = res.data
+      this.POST = { _id, phone, email, date, name }
       console.log(res, 'this.$api.mock')
     })
 
     this.$requestAll([
       this.$request({
-        url: this.$api.mock,
+        url: this.$api.test_get,
         type: 'GET',
         params: {}
       }),
       this.$request({
-        url: this.$api.mock,
+        url: this.$api.test_post,
         type: 'POST',
         params: {}
       })
     ]).then((arg) => {
+      this.ALL = []
+      for (let i = 0; i < arg.length; i++) {
+        let { _id, phone, email, date, name } = arg[i].data
+        this.ALL.push({ _id, phone, email, date, name })
+      }
       console.log(arg, '--requestAll--')
     })
   },
