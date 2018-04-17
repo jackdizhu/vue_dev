@@ -10,6 +10,9 @@
       <p>
         <router-link to="/page/VAwesomeSwiper2">广告图 轮播</router-link>
       </p>
+      <p>
+        <router-link to="/page/VPost">post 测试</router-link>
+      </p>
     </div>
     <div class="page">
       <router-view/>

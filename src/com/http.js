@@ -58,7 +58,8 @@ function post (url, data = {}) {
  * @returns {Promise}
  */
 function request (obj) {
-  let { url, params, type } = obj
+  let { url, params, type, baseURL } = obj
+  baseURL !== undefined && (axios.defaults.baseURL = baseURL)
   return new Promise((resolve, reject) => {
     let fn = null
     if (type === 'POST') {

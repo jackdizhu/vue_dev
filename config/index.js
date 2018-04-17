@@ -6,18 +6,25 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     // 代理
     proxyTable: {
-        '/api/**': {
+      '/api/**': {
         target: 'http://127.0.0.1:7300/mock/5a2bc96a0992fd3af87447f1/test1',
         changeOrigin: false,
         pathRewrite: {
-        // url 重写
-        // '^/api': ''
+          // url 重写
+          // '^/api': ''
+        }
+      },
+      '/post/**': {
+        target: 'http://82.11.196.167:8081',
+        changeOrigin: true,
+        pathRewrite: {
+          // url 重写
+          '^/post': ''
         }
       }
     },
