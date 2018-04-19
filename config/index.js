@@ -20,7 +20,7 @@ module.exports = {
         }
       },
       '/post/**': {
-        target: 'http://82.11.196.167:8081',
+        target: 'http://127.0.0.1/thinkphp_mysql/thinkphp/public/index.php',
         changeOrigin: true,
         pathRewrite: {
           // url 重写
