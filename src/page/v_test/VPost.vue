@@ -20,7 +20,7 @@
     },
     methods: {
       start: function () {
-        let _arr = key.sq
+        let _arr = key.wd
         for (let i = 0; i < _arr.length; i++) {
           // 生成随机数 大约一秒 请求一次
           let _t = Math.ceil(Math.random() * 200) + 900
