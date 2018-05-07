@@ -2,6 +2,10 @@
 
 > app1 project
 
+# nuxt 服务端渲染 ssr
+
+* [服务端渲染仓库地址](https://github.com/jackdizhu/koa_ssr)
+
 # preRender
 
 * vue 预渲染 是通过vuex 数据 以及data数据 提前渲染页面 异步数据不能渲染
