@@ -1,5 +1,6 @@
 <template>
   <div class="flex items-center content-center justify-center">
+    <mt-header fixed title="fixed top"></mt-header>
     <div class="link">
       <p>
         <router-link to="/page/VModelTest">v-model 组件 双向绑定</router-link>
