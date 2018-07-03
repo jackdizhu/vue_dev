@@ -1,20 +1,14 @@
 <template>
   <div id="app">
-    <div class="img-box">
-      <img :src="logo" width="16px">
-    </div>
     <router-view/>
   </div>
 </template>
 
 <script>
-import logo from '@/assets/logo.png'
-
 export default {
   name: 'app',
   data: () => {
     return {
-      logo: logo
     }
   },
   // 父组件数据
