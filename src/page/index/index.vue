@@ -43,25 +43,9 @@ export default {
   },
   // 完成了 data 数据的初始化，el没有
   created () {
-    // https post test
-    this.$request({
-      url: 'https://www.easy-mock.com/mock/5ab8bf9cca39d01d844c0bf7/test/test_post',
-      type: 'POST',
-      params: {}
-    }).then(res => {
-      console.log(res, 'https this.$api.mock')
-    })
-    // https get test
-    this.$request({
-      url: 'https://www.easy-mock.com/mock/5ab8bf9cca39d01d844c0bf7/test/test_get',
-      type: 'GET',
-      params: {}
-    }).then(res => {
-      console.log(res, 'https this.$api.mock')
-    })
     // get test
     this.$request({
-      url: this.$api.mock,
+      url: this.$api.test_get,
       type: 'GET',
       params: {}
     }).then(res => {
@@ -69,7 +53,7 @@ export default {
     })
     // post test
     this.$request({
-      url: this.$api.mock,
+      url: this.$api.test_post,
       type: 'POST',
       params: {}
     }).then(res => {
@@ -78,12 +62,12 @@ export default {
 
     this.$requestAll([
       this.$request({
-        url: this.$api.mock,
+        url: this.$api.test_get,
         type: 'GET',
         params: {}
       }),
       this.$request({
-        url: this.$api.mock,
+        url: this.$api.test_post,
         type: 'POST',
         params: {}
       })
