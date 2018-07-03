@@ -1,23 +1,13 @@
 <template>
   <div class="flex items-center content-center justify-center">
-    <mt-header fixed title="fixed top"></mt-header>
-    <div class="link">
-      <p>
-        <router-link to="/page/VModelTest">v-model 组件 双向绑定</router-link>
-      </p>
-      <p>
-        <router-link to="/page/VAwesomeSwiper">活动广告 轮播</router-link>
-      </p>
-      <p>
-        <router-link to="/page/VAwesomeSwiper2">广告图 轮播</router-link>
-      </p>
-      <p>
-        <router-link to="/page/VPost">post 测试</router-link>
-      </p>
-    </div>
-    <div class="page">
-      <router-view/>
-    </div>
+    <el-container>
+      <el-header>Header</el-header>
+      <el-main>
+        <div class="page">
+          <router-view/>
+        </div>
+      </el-main>
+    </el-container>
   </div>
 </template>
 

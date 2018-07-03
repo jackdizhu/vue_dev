@@ -11,10 +11,10 @@ import '@/less/com.less'
 // import config from './com/config.js'
 
 // 引入全部组件
-import Mint from 'mint-ui'
+import ElementUI from 'element-ui'
 // 引入全局样式
-import 'mint-ui/lib/style.css'
-Vue.use(Mint)
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
 
 // 使用 路由
 Vue.use(Router)
