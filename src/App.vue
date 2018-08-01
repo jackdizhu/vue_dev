@@ -5,17 +5,23 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component } from 'vue-property-decorator'
+import VueClass from './vueClass'
 import HelloWorld from './components/HelloWorld.vue'
 
+// 定义组件
 @Component({
   components: {
     HelloWorld,
   },
 })
-export default class App extends Vue {
+export default class App extends VueClass {
   msg = 'Vue.js + TypeScript'
   num = 123
+
+  async created () {
+    console.log(this.$api)
+  }
 }
 </script>
 
