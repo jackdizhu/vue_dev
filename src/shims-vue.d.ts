@@ -6,10 +6,10 @@ declare module '*.json' {
   const value: any
   export default value
 }
-declare module 'vue/types/vue' {
-  interface Vue {
-    api: any,
-    httpRequest: any,
-    storage: any
-  }
-}
+// declare module 'vue/types/vue' {
+//   interface Vue {
+//     api: any,
+//     httpRequest: any,
+//     storage: any
+//   }
+// }

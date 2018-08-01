@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts">
+import VueClass from '@/vueClass'
 import { Component } from 'vue-property-decorator'
-import VueClass from './vueClass'
 import HelloWorld from './components/HelloWorld.vue'
 
 // 定义组件
@@ -20,9 +20,9 @@ export default class App extends VueClass {
   num = 123
 
   async created () {
-    this.storage.setItem('api', JSON.stringify(this.api))
-    console.log(this.storage, 'created test this.storage')
-    console.log(this.api, 'created test this.api')
+    // this.storage.setItem('api', JSON.stringify(this.api))
+    // console.log(this.storage, 'created test this.storage')
+    // console.log(this.api, 'created test this.api')
   }
 }
 </script>

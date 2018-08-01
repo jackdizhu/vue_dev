@@ -9,18 +9,19 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Emit, Watch, Vue } from 'vue-property-decorator';
+import VueClass from '@/vueClass'
+import { Component, Prop, Emit, Watch } from 'vue-property-decorator';
 
 interface GetRes {
   code: string,
   data: {
-    readonly _id: string
+    _id: string
     date: number
   }
 }
 
 @Component
-export default class HelloWorld extends Vue {
+export default class HelloWorld extends VueClass {
   // 定义 data 数据
   dataMsg:string = 'dataMsg'
   dataNum:number = 11
@@ -55,36 +56,36 @@ export default class HelloWorld extends Vue {
   async created () {
     // Promise
 
-    // this.$httpRequest.request({
-    //   url: this.$api.test_get,
+    // this.httpRequest.request({
+    //   url: this.api.test_get,
     //   type: 'GET',
     //   params: {}
-    // }).then(res => {
+    // }).then((res: GetRes) => {
     //   console.log(res, 'res')
     // })
-    // this.$httpRequest.request({
-    //   url: this.$api.test_post,
+    // this.httpRequest.request({
+    //   url: this.api.test_post,
     //   type: 'POST',
     //   params: {}
-    // }).then(res => {
+    // }).then((res: GetRes) => {
     //   console.log(res, 'res')
     // })
 
     // async await
 
-    // let getRes: GetRes = await this.$httpRequest.request({
-    //   url: this.$api.test_get,
-    //   type: 'GET',
-    //   params: {}
-    // })
-    // console.log(getRes, 'getRes res')
+    let getRes: GetRes = await this.httpRequest.request({
+      url: this.api.test_get,
+      type: 'GET',
+      params: {}
+    })
+    console.log(getRes, 'getRes res')
 
-    // let postRes = await this.$httpRequest.request({
-    //   url: this.$api.test_post,
-    //   type: 'POST',
-    //   params: {}
-    // })
-    // console.log(postRes, 'postRes res')
+    let postRes = await this.httpRequest.request({
+      url: this.api.test_post,
+      type: 'POST',
+      params: {}
+    })
+    console.log(postRes, 'postRes res')
 
     console.log('created ------------------ 完成了 data 数据的初始化，el没有')
   }
