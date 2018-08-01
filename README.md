@@ -23,3 +23,9 @@ declare module 'vue/types/vue' {
   }
 }
 ```
+
+* 开发问题
+
+```
+vue-cli@3 不能实时刷新 TypeScript class 类 ($api $ 开头的属性方法 不能继承)
+```

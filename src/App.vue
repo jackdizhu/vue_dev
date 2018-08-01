@@ -20,7 +20,9 @@ export default class App extends VueClass {
   num = 123
 
   async created () {
-    console.log(this.$api)
+    this.storage.setItem('api', JSON.stringify(this.api))
+    console.log(this.storage, 'created test this.storage')
+    console.log(this.api, 'created test this.api')
   }
 }
 </script>
