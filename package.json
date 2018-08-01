@@ -19,6 +19,8 @@
     "@vue/cli-plugin-typescript": "^3.0.0-rc.10",
     "@vue/cli-service": "^3.0.0-rc.10",
     "@vue/eslint-config-typescript": "^3.0.0-rc.10",
+    "less": "^3.8.0",
+    "less-loader": "^4.1.0",
     "typescript": "^3.0.0",
     "vue-template-compiler": "^2.5.16"
   },
