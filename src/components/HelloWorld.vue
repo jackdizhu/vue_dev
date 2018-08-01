@@ -41,8 +41,7 @@ export default class HelloWorld extends VueClass {
   // 定义 methods 方法
   @Emit()
   methods_dataMsg_add (n: string): void {
-    // this.dataMsg += n + this.$api.version
-    this.dataMsg += n
+    this.dataMsg += n + this.api.version
   }
   @Emit()
   methods_dataNum_add (n: number): void {
