@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <HelloWorld :msg="msg" :num="num"/>
+    <h1>++++++++++++++++++++++++++</h1>
     <div>
       <router-view/>
     </div>

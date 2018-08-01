@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <p>_id: {{user._id}}</p>
     <h1>dataMsg: <span @click="methods_dataMsg_add('1')">{{ dataMsg }}</span></h1>
     <h1>dataNum: <span @click="methods_dataNum_add(1)">{{ dataNum }}</span></h1>
     <h1>--------------</h1>
@@ -10,7 +11,8 @@
 
 <script lang="ts">
 import VueClass from '@/vueClass'
-import { Component, Prop, Emit, Watch } from 'vue-property-decorator';
+import { Component, Prop, Emit, Watch } from 'vue-property-decorator'
+import { State, Action, Mutation, Getter } from 'vuex-class'
 
 interface GetRes {
   code: string,
@@ -22,6 +24,11 @@ interface GetRes {
 
 @Component
 export default class HelloWorld extends VueClass {
+  // vuex
+  @State user: any
+  @Action user_signin: any
+  @Mutation USER_SIGNIN: any
+  @Getter show_user_id: any
   // 定义 data 数据
   dataMsg:string = 'dataMsg'
   dataNum:number = 11
@@ -78,6 +85,8 @@ export default class HelloWorld extends VueClass {
       params: {}
     })
     console.log(getRes, 'getRes res')
+    // 更新 vuex
+    this.user_signin(getRes.data)
 
     let postRes = await this.httpRequest.request({
       url: this.api.test_post,
