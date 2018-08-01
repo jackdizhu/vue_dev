@@ -8,8 +8,8 @@ declare module '*.json' {
 }
 declare module 'vue/types/vue' {
   interface Vue {
-    $api: any,
-    $httpRequest: any,
-    $storage: any
+    api: any,
+    httpRequest: any,
+    storage: any
   }
 }
