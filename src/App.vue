@@ -1,55 +1,29 @@
 <template>
   <div id="app">
-    <div class="img-box">
-      <img :src="logo" width="16px">
-    </div>
-    <router-view/>
+    <img src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
   </div>
 </template>
 
-<script>
-import logo from '@/assets/logo.png'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import HelloWorld from './components/HelloWorld.vue';
 
-export default {
-  name: 'app',
-  data: () => {
-    return {
-      logo: logo
-    }
+@Component({
+  components: {
+    HelloWorld,
   },
-  // 父组件数据
-  props: [],
-  // 组件
-  components: {},
-  // 计算
-  computed: {},
-  // 数据监听
-  watch: {},
-  // 事件方法
-  methods: {},
-  // el 和 data 并未初始化
-  beforeCreate () {
-    // this.$router.push('/index')
-    console.log('beforeCreate ------------- el 和 data 并未初始化')
-  },
-  // 完成了 data 数据的初始化，el没有
-  created () {
-    console.log('created ------------------ 完成了 data 数据的初始化，el没有')
-  },
-  // 完成了 el 和 data 初始化
-  beforeMount () {
-    console.log('beforeMount -------------- 完成了 el 和 data 初始化')
-  },
-  // 完成挂载
-  mounted () {
-    console.log('mounted ------------------ 完成挂载')
-  }
-}
+})
+export default class App extends Vue {}
 </script>
 
-<style lang="less" scoped>
-  .img-box{
-    text-align: center;
-    padding: 1rem;
-  }
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>
