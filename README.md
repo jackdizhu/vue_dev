@@ -27,5 +27,6 @@ declare module 'vue/types/vue' {
 * 开发问题
 
 ```
-vue-cli@3 不能实时刷新 TypeScript class 类 ($api $ 开头的属性方法 不能继承)
+vue-cli@3 不能实时刷新 ts class 类 ($api $ 开头的属性方法 不能继承)
+import VueClass from './vueClass' // 加载 ts 模块 '@/vueClass' 路径解析正常 提示安装模块不能正常加载
 ```
