@@ -6,7 +6,14 @@ let _storage: any = new storage()
 
 Vue.use(Vuex)
 
-const state = {
+interface State {
+  user?: {
+    _id: string,
+    date: number
+  }
+}
+
+const state: State = {
   user: (function () {
     let obj = null
     try {
