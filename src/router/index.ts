@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import HelloWorld from '@/components/HelloWorld.vue'
+import Index from '@/components/index.vue'
 
 // import Page from '@/page/index'
 
@@ -11,7 +11,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: HelloWorld,
+      component: Index,
       // children: [
       //   {
       //     path: '/page/VPost',

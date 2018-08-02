@@ -1,11 +1,11 @@
 <template>
   <div class="hello">
-    <p>_id: {{user._id}}</p>
-    <h1>dataMsg: <span @click="methods_dataMsg_add('1')">{{ dataMsg }}</span></h1>
-    <h1>dataNum: <span @click="methods_dataNum_add(1)">{{ dataNum }}</span></h1>
+    <p @click="methods_changeId">[修改vuex]_id: {{user._id}}</p>
+    <h1>[修改data]dataMsg: <span @click="methods_dataMsg_add('1')" ref="dataMsg">{{ dataMsg }}</span></h1>
+    <h1>[修改data]dataNum: <span @click="methods_dataNum_add(1)">{{ dataNum }}</span></h1>
     <h1>--------------</h1>
-    <h1>msg: {{ msg }}</h1>
-    <h1>num: {{ num }}</h1>
+    <h1>[修改parent data]msg: <span @click="methods_msg_add('1')" ref="msg">{{ msg }}</span></h1>
+    <h1>[修改parent data]num: <span @click="methods_num_add(1)">{{ num }}</span></h1>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ import { State, Action, Mutation, Getter } from 'vuex-class'
 interface GetRes {
   code: string,
   data: {
-    _id: string
+    _id: string,
     date: number
   }
 }
@@ -35,6 +35,8 @@ export default class HelloWorld extends VueClass {
   // 定义 props 属性
   @Prop() private msg!: string
   @Prop() private num!: number
+  @Prop() private msg_add!: any
+  @Prop() private num_add!: any
   // 定义 watch 方法
   @Watch('dataNum')
   Watch_dataNum(val: number, oldVal: number): void {
@@ -48,11 +50,31 @@ export default class HelloWorld extends VueClass {
   // 定义 methods 方法
   @Emit()
   methods_dataMsg_add (n: string): void {
+    // 编译警告错误: Property 'className' does not exist on type
+    // this.$refs.dataMsg.className = 'on'
     this.dataMsg += n + this.api.version
   }
   @Emit()
   methods_dataNum_add (n: number): void {
     this.dataNum += n
+  }
+  @Emit()
+  methods_msg_add (n: string): void {
+    // 编译警告错误: Property 'className' does not exist on type
+    // this.$refs.dataMsg.className = 'on'
+    this.$emit('msg_add', n)
+  }
+  @Emit()
+  methods_num_add (n: number): void {
+    this.$emit('num_add', n)
+  }
+  @Emit()
+  methods_changeId (): void {
+    let data = {
+      _id: this.show_user_id + 'string',
+      date: 123
+    }
+    this.user_signin(data)
   }
   // 定义 生命周期方法
   beforeCreate (): void {
@@ -66,20 +88,20 @@ export default class HelloWorld extends VueClass {
     //   url: this.api.test_get,
     //   type: 'GET',
     //   params: {}
-    // }).then((res: GetRes) => {
+    // }).then((res: any) => {
     //   console.log(res, 'res')
     // })
     // this.httpRequest.request({
     //   url: this.api.test_post,
     //   type: 'POST',
     //   params: {}
-    // }).then((res: GetRes) => {
+    // }).then((res: any) => {
     //   console.log(res, 'res')
     // })
 
     // async await
 
-    let getRes: GetRes = await this.httpRequest.request({
+    let getRes = await this.httpRequest.request({
       url: this.api.test_get,
       type: 'GET',
       params: {}
