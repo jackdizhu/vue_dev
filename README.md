@@ -1,30 +1,10 @@
-# app1
-
-> app1 project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+npm i vue-class-component vue-property-decorator ts-loader typescript --save
+npm install webpack-cli webpack webpack-dev-server --save-dev
+// ...(config.dev.useEslint ? [createLintingRule()] : []),
+error: TypeError: compilation.mainTemplate.applyPluginsWaterfall is not a function
+npm install html-webpack-plugin@3.2.0 --save-dev
+error: Cannot find type definition file for 'node'
+npm install @types/node --save-dev
+npm install @types/vue --save-dev
+```
