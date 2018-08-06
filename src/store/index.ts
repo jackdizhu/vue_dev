@@ -56,7 +56,7 @@ const actions = {
 }
 // 获取状态信息
 const getters = {
-  show_user_id: (state: any) => state.user._id,
+  show_user_id: (state: any) => (state.user&&state.user._id)||'',
 }
 
 export default new Vuex.Store({
