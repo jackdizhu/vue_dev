@@ -1,3 +1,5 @@
+## main.ts 文件打包正常 vue lang="ts" 打包报错
+
 ```
 npm i vue-class-component vue-property-decorator ts-loader typescript --save
 npm install webpack-cli webpack webpack-dev-server --save-dev
