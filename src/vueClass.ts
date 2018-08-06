@@ -1,11 +1,12 @@
 import { Vue } from 'vue-property-decorator'
 
-// import Api from './com/api.json'
-// import {httpRequest} from './com/http'
-// import {storage} from './com/com'
+import Api from './com/api.json'
+import {httpRequest} from './com/http'
+import {storage} from './com/com'
 
 export default class VueClass extends Vue {
-  // public api: any = Api
-  // public httpRequest: any = new httpRequest()
-  // public storage: any = new storage()
+  public api: any = Api
+  // 不能继承多个 类 使用属性代替
+  public httpRequest: any = new httpRequest()
+  public storage: any = new storage()
 }

@@ -1,14 +1,37 @@
 {
   "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
     "strict": true,
-    "module": "es2015",
+    "jsx": "preserve",
+    "importHelpers": true,
     "moduleResolution": "node",
-    "target": "es5",
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": false, // 配置加载js 模块报错问题
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "node"    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
     "lib": [
-      "es2017",
-      "dom"
+      "es2015",
+      "dom",
+      "dom.iterable",
+      "scripthost"
     ]
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

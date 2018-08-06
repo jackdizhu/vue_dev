@@ -1,55 +1,60 @@
 <template>
   <div id="app">
-    <div class="img-box">
-      <img :src="logo" width="16px">
+    <p>_id: {{show_user_id}}</p>
+    <h1>++++++++++++++++++++++++++</h1>
+    <HelloWorld :msg="msg" :num="num" @msg_add="methods_msg_add" @num_add="methods_num_add"/>
+    <h1>++++++++++++++++++++++++++</h1>
+    <div>
+      <router-view/>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<script>
-import logo from '@/assets/logo.png'
+<script lang="ts">
+import VueClass from '@/vueClass'
+import { Component, Emit } from 'vue-property-decorator'
+import { State, Action, Mutation, Getter } from 'vuex-class'
+import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'app',
-  data: () => {
-    return {
-      logo: logo
-    }
+// 定义组件
+@Component({
+  components: {
+    HelloWorld,
   },
-  // 父组件数据
-  props: [],
-  // 组件
-  components: {},
-  // 计算
-  computed: {},
-  // 数据监听
-  watch: {},
-  // 事件方法
-  methods: {},
-  // el 和 data 并未初始化
-  beforeCreate () {
-    // this.$router.push('/index')
-    console.log('beforeCreate ------------- el 和 data 并未初始化')
-  },
-  // 完成了 data 数据的初始化，el没有
-  created () {
-    console.log('created ------------------ 完成了 data 数据的初始化，el没有')
-  },
-  // 完成了 el 和 data 初始化
-  beforeMount () {
-    console.log('beforeMount -------------- 完成了 el 和 data 初始化')
-  },
-  // 完成挂载
-  mounted () {
-    console.log('mounted ------------------ 完成挂载')
+})
+export default class App extends VueClass {
+  @Getter show_user_id: any
+
+  msg = 'Vue.js + TypeScript'
+  num = 123
+
+  // 定义 methods 方法
+  @Emit()
+  methods_msg_add (n: string): void {
+    // 编译警告错误: Property 'className' does not exist on type
+    // this.$refs.dataMsg.className = 'on'
+    this.msg += n + this.api.version
+  }
+  @Emit()
+  methods_num_add (n: number): void {
+    this.num += n
+  }
+
+  async created () {
+    // this.storage.setItem('api', JSON.stringify(this.api))
+    // console.log(this.storage, 'created test this.storage')
+    // console.log(this.api, 'created test this.api')
   }
 }
 </script>
 
-<style lang="less" scoped>
-  .img-box{
-    text-align: center;
-    padding: 1rem;
-  }
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>

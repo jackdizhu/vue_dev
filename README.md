@@ -4,4 +4,5 @@
 
 ```
 npm i vue-class-component@6.2.0 vue-property-decorator@7.0.0 ts-loader@3.5.0 typescript@3.0.1 --save
+npm install --save tslib
 ```
