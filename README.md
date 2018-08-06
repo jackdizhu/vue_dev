@@ -1,30 +1,7 @@
-# app1
+## vue lang="ts" 打包配置完成
 
-> app1 project
+* ts-loader @3需要webpack@3版本 ,@4需要webpack@4版本
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+npm i vue-class-component@6.2.0 vue-property-decorator@7.0.0 ts-loader@3.5.0 typescript@3.0.1 --save
+```
