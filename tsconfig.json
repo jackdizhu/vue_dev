@@ -7,7 +7,7 @@
     "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "esModuleInterop": true,
+    "esModuleInterop": false, // 配置加载js 模块报错问题
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
