@@ -25,7 +25,7 @@ export class httpRequest {
    * @param params
    * @returns {Promise}
    */
-  get (url: string, params: any = {}): any {
+  get (url: string, params: any = {}): Promise<any> {
     return new Promise((resolve, reject) => {
       axios.get(url, {
         params: params
@@ -44,7 +44,7 @@ export class httpRequest {
    * @param data
    * @returns {Promise}
    */
-  post (url: string, data: any = {}): any {
+  post (url: string, data: any = {}): Promise<any> {
     return new Promise((resolve, reject) => {
       axios.post(url, qs.stringify(data), {
         headers: {
@@ -65,7 +65,7 @@ export class httpRequest {
    * @param obj {  url, params, type }
    * @returns {Promise}
    */
-  request (obj: RequestParams): any {
+  request (obj: RequestParams): Promise<any> {
     let { url, params, type, baseURL } = obj
     baseURL !== undefined && (axios.defaults.baseURL = baseURL)
     return new Promise((resolve, reject) => {
@@ -103,7 +103,7 @@ export class httpRequest {
       console.log(arg, '--requestAll--')
     })
    */
-  requestAll (_requestArr: any): any {
+  requestAll (_requestArr: any): Promise<any> {
     return new Promise((resolve, reject) => {
       axios.all(_requestArr)
       .then(axios.spread(function (...params) {
