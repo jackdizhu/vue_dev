@@ -1,30 +1,4 @@
-# app1
-
-> app1 project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+[vue_dev] 开发环境配置 
+[preRender] 预渲染配置部分页面生成静态文件 其他使用vue router跳转
+[dev_ts] vue-cli@3 建立 Vue + vue-cli + TypeScript 项目
+[dev_webpack3_ts] webpack@3版本 建立 Vue + webpack + TypeScript 项目
