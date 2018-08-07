@@ -8,14 +8,14 @@ let _storage = new storage()
 Vue.use(Vuex)
 
 interface State {
-  user?: {
-    _id: string,
-    date: number
+  user: {
+    _id?: string,
+    date?: number
   }
 }
 
 const state: State = {
-  user: undefined
+  user: {}
 }
 // 同步操作
 const mutations = {
