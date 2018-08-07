@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {storage} from '@/com/com'
+import createPersistedState from 'vuex-persistedstate'
 
 let _storage = new storage()
 
@@ -14,26 +15,15 @@ interface State {
 }
 
 const state: State = {
-  user: (function () {
-    let obj = null
-    try {
-      obj = JSON.parse(_storage.getItem('user')||'')
-    }
-    catch(err){
-      obj = {}
-    }
-    return obj
-  })()
+  user: undefined
 }
 // 同步操作
 const mutations = {
   // 方法名 建议大写
   USER_SIGNIN(state: any, user: any) {
-    _storage.setItem('user', JSON.stringify(user))
     Object.assign(state.user, user)
   },
   USER_SIGNOUT(state: any) {
-    _storage.removeItem('user')
     Object.keys(state).forEach(k => Vue.delete(state, k))
   }
 }
@@ -61,6 +51,7 @@ const getters = {
 
 export default new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production', // 在非生产环境下，使用严格模式
+  plugins: [createPersistedState()],
   state,
   mutations,
   actions,
