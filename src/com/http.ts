@@ -8,6 +8,14 @@ axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5ab8bf9cca39d01d844c0bf
 //   rejectUnauthorized: false
 // })
 
+// 定义 request 方法参数结构
+interface RequestParams {
+  url: string,
+  type: 'GET'|'POST',
+  params: any,
+  baseURL?: string
+}
+
 var qs = require('qs')
 
 export class httpRequest {
@@ -17,7 +25,7 @@ export class httpRequest {
    * @param params
    * @returns {Promise}
    */
-  get (url: string, params: any = {}) {
+  get (url: string, params: any = {}): any {
     return new Promise((resolve, reject) => {
       axios.get(url, {
         params: params
@@ -36,7 +44,7 @@ export class httpRequest {
    * @param data
    * @returns {Promise}
    */
-  post (url: string, data = {}) {
+  post (url: string, data: any = {}): any {
     return new Promise((resolve, reject) => {
       axios.post(url, qs.stringify(data), {
         headers: {
@@ -57,7 +65,7 @@ export class httpRequest {
    * @param obj {  url, params, type }
    * @returns {Promise}
    */
-  request (obj: any) {
+  request (obj: RequestParams): any {
     let { url, params, type, baseURL } = obj
     baseURL !== undefined && (axios.defaults.baseURL = baseURL)
     return new Promise((resolve, reject) => {
@@ -70,7 +78,7 @@ export class httpRequest {
       fn(url, params).then(function (res: any) {
         let data = res.data || {}
         resolve(data)
-      }).catch(err => {
+      }).catch((err: any) => {
         let status = (err.response && err.response.status) || 0
         console.log(status, 'request catch err')
         resolve({ code: status, err: 'requestErr' })
@@ -95,12 +103,12 @@ export class httpRequest {
       console.log(arg, '--requestAll--')
     })
    */
-  requestAll (_requestArr: any) {
+  requestAll (_requestArr: any): any {
     return new Promise((resolve, reject) => {
       axios.all(_requestArr)
       .then(axios.spread(function (...params) {
         resolve(params)
-      })).catch(err => {
+      })).catch((err: any) => {
         console.log(err, 'requestAll catch err')
         resolve({ err: 'requestErr' })
         // reject(err) // 返回错误

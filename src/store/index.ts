@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import {storage} from '@/com/com'
 
-let _storage: any = new storage()
+let _storage = new storage()
 
 Vue.use(Vuex)
 
@@ -17,7 +17,7 @@ const state: State = {
   user: (function () {
     let obj = null
     try {
-      obj = JSON.parse(_storage.getItem('user'))
+      obj = JSON.parse(_storage.getItem('user')||'')
     }
     catch(err){
       obj = {}
@@ -56,7 +56,7 @@ const actions = {
 }
 // 获取状态信息
 const getters = {
-  show_user_id: (state: any) => (state.user&&state.user._id)||'',
+  show_user_id: (state: any) :string => (state.user&&state.user._id)||'',
 }
 
 export default new Vuex.Store({
