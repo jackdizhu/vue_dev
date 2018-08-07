@@ -20,10 +20,10 @@ const state: State = {
 // 同步操作
 const mutations = {
   // 方法名 建议大写
-  USER_SIGNIN(state: any, user: any) {
+  USER_SIGNIN(state: State, user: any) {
     Object.assign(state.user, user)
   },
-  USER_SIGNOUT(state: any) {
+  USER_SIGNOUT(state: State) {
     Object.keys(state).forEach(k => Vue.delete(state, k))
   }
 }
@@ -32,21 +32,21 @@ const actions = {
   // {commit} 解构赋值 直接获取属性方法
   user_signin(con: {
     commit: any,
-    state: any
+    state: State
   }, user: any) {
     con.commit('USER_SIGNIN', user)
   },
   // {commit} 解构赋值 直接获取属性方法
   user_signout(con: {
     commit: any,
-    state: any
+    state: State
   }) {
     con.commit('USER_SIGNOUT')
   }
 }
 // 获取状态信息
 const getters = {
-  show_user_id: (state: any) :string => (state.user&&state.user._id)||'',
+  show_user_id: (state: State) :string => (state.user&&state.user._id)||'',
 }
 
 export default new Vuex.Store({
