@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <test-js></test-js>
+    <h1>++++++++++++++++++++++++++</h1>
     <p>_id: {{show_user_id}}</p>
     <h1>++++++++++++++++++++++++++</h1>
     <HelloWorld :msg="msg" :num="num" @msg_add="methods_msg_add" @num_add="methods_num_add"/>
@@ -15,11 +17,13 @@ import VueClass from '@/vueClass'
 import { Component, Emit } from 'vue-property-decorator'
 import { State, Action, Mutation, Getter } from 'vuex-class'
 import HelloWorld from './components/HelloWorld.vue'
+import TestJs from './components/TestJs.vue'
 
 // 定义组件
 @Component({
   components: {
     HelloWorld,
+    TestJs
   },
 })
 export default class App extends VueClass {
