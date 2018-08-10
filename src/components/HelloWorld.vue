@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello" :data-url="_activeRouteItemRoute">
     <p @click="methods_changeId">[修改vuex]_id: {{user._id}}</p>
     <h1>[修改data]dataMsg: <span @click="methods_dataMsg_add('1')" ref="dataMsg">{{ dataMsg }}</span></h1>
     <h1>[修改data]dataNum: <span @click="methods_dataNum_add(1)">{{ dataNum }}</span></h1>
@@ -44,8 +44,8 @@ export default class HelloWorld extends VueClass {
   }
   // 定义 computed 方法
   get _activeRouteItemRoute(): string {
-    // return this.$route.path
-    return 'this.$route.path'
+    return this.$route.path
+    // return 'this.$route.path'
   }
   // 定义 methods 方法
   @Emit()
@@ -74,6 +74,9 @@ export default class HelloWorld extends VueClass {
       _id: this.show_user_id + 'string',
       date: 123
     }
+    // Mutation
+    // this.USER_SIGNIN(data)
+    // Action
     this.user_signin(data)
   }
   // 定义 生命周期方法

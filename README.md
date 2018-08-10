@@ -18,6 +18,19 @@ const somePlugin = {
 }
 // 使用插件
 Vue.use(somePlugin)
+
+// vuex-class 使用
+@State user: any
+@Action user_signin: any
+@Mutation USER_SIGNIN: any
+@Getter show_user_id: any
+
+this.user
+// Mutation
+this.USER_SIGNIN(data)
+// Action
+this.user_signin(data)
+this.show_user_id
 ```
 
 ```
