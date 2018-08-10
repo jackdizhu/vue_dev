@@ -40,6 +40,33 @@ private  methods_vueclass_private() {
 protected methods_vueclass_protected() {
   console.log(1, 'VueClass methods_vueclass_protected')
 }
+
+// target: 对于静态成员来说是类的构造函数，对于实例成员是类的原型对象
+// propertyKey: 成员的名字
+// descriptor: 成员的属性描述符 {value: any, writable: boolean, enumerable: boolean, configurable: boolean}
+
+// 方法装饰器
+const Mounted = function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+  let key = propertyKey
+  let fun = descriptor.value
+  target['Mounted'] = target['Mounted'] || {}
+  target['Mounted'][key] = fun
+  console.log(1, target)
+}
+@Phone
+public phone: string = '130'
+
+// 属性装饰器
+const Phone = function (target: any, propertyKey: string) {
+  let key = propertyKey
+  target['val'] = target['val'] || {}
+  target['val'][key] = '100'
+  console.log(1, target)
+}
+@Mounted
+public mounted () {
+  console.log(1, this.$el)
+}
 ```
 
 ```
