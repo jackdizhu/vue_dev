@@ -15,6 +15,15 @@ export default class VueClass extends Vue {
   public httpRequest = new httpRequest()
   public storage = new storage()
 
+  // 私有方法
+  private  methods_vueclass_private() {
+    console.log(1, 'VueClass methods_vueclass_private')
+  }
+  // 保护方法（可继承的方法）
+  protected methods_vueclass_protected() {
+    console.log(1, 'VueClass methods_vueclass_protected')
+  }
+
   public created () {
     console.log(1, 'VueClass created')
   }

@@ -64,13 +64,16 @@ export default class HelloWorld extends VueClass {
   }
   // 完成了 data 数据的初始化，el没有
   async created () {
+    this.methods_vueclass_protected()
     this.methods_vueclass_test()
+    // this.methods_vueclass_private()
   }
   // 完成了 el 和 data 初始化
   beforeMount (): void {
   }
   // 完成挂载
   // mounted (): void {
+  //   console.log(2, this.$el)
   // }
 }
 </script>
