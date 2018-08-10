@@ -31,6 +31,15 @@ this.USER_SIGNIN(data)
 // Action
 this.user_signin(data)
 this.show_user_id
+
+// 私有方法
+private  methods_vueclass_private() {
+  console.log(1, 'VueClass methods_vueclass_private')
+}
+// 保护方法（可继承的方法）
+protected methods_vueclass_protected() {
+  console.log(1, 'VueClass methods_vueclass_protected')
+}
 ```
 
 ```
