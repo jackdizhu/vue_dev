@@ -31,15 +31,18 @@ export default class App extends VueClass {
 
   msg = 'Vue.js + TypeScript'
   num = 123
-
+  
+  @Emit() // $emit('on-change', this.msg)
+  onChange () {
+    console.log(this.value, 'onChange')
+    return this.msg
+  }
   // 定义 methods 方法
-  @Emit()
   methods_msg_add (n: string): void {
     // 编译警告错误: Property 'className' does not exist on type
     // this.$refs.dataMsg.className = 'on'
     this.msg += n + this.api.version
   }
-  @Emit()
   methods_num_add (n: number): void {
     this.num += n
   }
