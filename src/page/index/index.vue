@@ -13,6 +13,12 @@
       <p>
         <router-link to="/page/VPost">post 测试</router-link>
       </p>
+      <p>
+        <router-link to="/page/iframeVue">iframeVue 测试</router-link>
+      </p>
+      <p>
+        <router-link to="/page/iframeChild">iframeChild 测试</router-link>
+      </p>
     </div>
     <div class="page">
       <router-view/>

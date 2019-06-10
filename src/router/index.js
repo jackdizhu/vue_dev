@@ -8,6 +8,8 @@ import VModelTest from '@/page/v_test/VModelTest.vue'
 import VAwesomeSwiper from '@/page/v_test/VAwesomeSwiper.vue'
 import VAwesomeSwiper2 from '@/page/v_test/VAwesomeSwiper.1.vue'
 import VPost from '@/page/v_test/VPost.vue'
+import iframeChild from '@/components/iframeChild'
+import iframeVue from '@/components/iframeVue'
 
 Vue.use(Router)
 
@@ -46,6 +48,16 @@ export default new Router({
           path: '/page/VPost',
           name: 'VPost',
           component: VPost
+        },
+        {
+          path: '/page/iframeVue',
+          name: 'iframeVue',
+          component: iframeVue
+        },
+        {
+          path: '/page/iframeChild',
+          name: 'iframeChild',
+          component: iframeChild
         }
       ]
     }
