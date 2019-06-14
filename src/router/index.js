@@ -10,6 +10,7 @@ import VAwesomeSwiper2 from '@/page/v_test/VAwesomeSwiper.1.vue'
 import VPost from '@/page/v_test/VPost.vue'
 import iframeChild from '@/components/iframeChild'
 import iframeVue from '@/components/iframeVue'
+import upload from '@/components/webUpload'
 
 Vue.use(Router)
 
@@ -58,6 +59,11 @@ export default new Router({
           path: '/page/iframeChild',
           name: 'iframeChild',
           component: iframeChild
+        },
+        {
+          path: '/page/upload',
+          name: 'upload',
+          component: upload
         }
       ]
     }
