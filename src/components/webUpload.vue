@@ -10,7 +10,7 @@ export default {
   props: {
     uploadUrl: {
       type: String,
-      default: 'http://127.0.0.1:3000/api/'
+      default: 'http://127.0.0.1:3000/api/upload'
     },
     auto: {
       type: Boolean,
@@ -22,7 +22,7 @@ export default {
     },
     chunkSize: {
       type: Number,
-      default: 5242880 // 分多大一片 5M
+      default: 1024 * 1024 * 5 // 分多大一片 5M
     },
     formData: {
       type: Object,
@@ -54,15 +54,15 @@ export default {
         auto: _this.auto,
         chunked: _this.chunked,
         chunkSize: _this.chunkSize, // 分多大一片 5M
-        chunkRetry: 2,
-        threads: 3,
+        chunkRetry: 2, // 重试次数
+        threads: 3, // 并发数量
         fileNumLimit: void (0), // 文件总数量
         fileSizeLimit: void (0), // 文件总大小
         fileSingleSizeLimit: void (0), // 单个文件大小
         duplicate: void (0), // 去重
         formData: _this.formData,
         fileVal: 'file',
-        sendAsBinary: true,
+        sendAsBinary: false, // 是否以二进制方式上传
         swf: './Uploader.swf',
         server: _this.uploadUrl
       })
@@ -105,9 +105,9 @@ export default {
         _this.$emit('uploadStart', res)
       })
       .on('uploadBeforeSend', function (res) {
-        let {chunk, chunks, start, end, total, percentage} = res
+        // let {chunk, chunks, start, end, total, percentage} = res
         // console.log(res, `当某个文件的分块在发送前触发--${res.percentage}`)
-        console.log({chunk, chunks, start, end, total, percentage}, `当某个文件的分块在发送前触发--${res.percentage}`)
+        // console.log({chunk, chunks, start, end, total, percentage}, `当某个文件的分块在发送前触发--${res.percentage}`)
         _this.$emit('uploadBeforeSend', res)
       })
       .on('uploadAccept', function (res) {
@@ -123,7 +123,7 @@ export default {
         _this.$emit('uploadError', res)
       })
       .on('uploadSuccess', function (res) {
-        // console.log(res, '当文件上传成功时触发')
+        console.log(res, '当文件上传成功时触发')
         _this.$emit('uploadSuccess', res)
       })
       .on('uploadComplete', function (res) {
@@ -167,7 +167,7 @@ export default {
         height: 1px;
         position: absolute;
         left: 0;
-        top: -2px;
+        top: -100px;
         z-index: 4;
       }
       label {
