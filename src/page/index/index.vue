@@ -34,7 +34,6 @@
 </template>
 
 <script>
-// import logo from '@/assets/logo.png'
 // import pdfView from '@/components/pdf-view.vue'
 
 export default {
