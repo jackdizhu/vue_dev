@@ -1,5 +1,6 @@
 <template>
-  <div class="flex items-center content-center justify-center">
+  <div class="flex items-start content-center justify-center">
+    <!-- <pdfView src="http://127.0.0.1:8080/static/test.pdf"/> -->
     <div class="link">
       <p>
         <router-link to="/page/VModelTest">v-model 组件 双向绑定</router-link>
@@ -22,6 +23,9 @@
       <p>
         <router-link to="/page/upload">upload 测试</router-link>
       </p>
+      <p>
+        <router-link to="/page/pdfView">pdf-view 测试</router-link>
+      </p>
     </div>
     <div class="page">
       <router-view/>
@@ -31,8 +35,12 @@
 
 <script>
 // import logo from '@/assets/logo.png'
+// import pdfView from '@/components/pdf-view.vue'
 
 export default {
+  components: {
+    // pdfView
+  },
   name: 'app',
   data: () => {
     return {}
@@ -40,7 +48,7 @@ export default {
   // 父组件数据
   props: [],
   // 组件
-  components: {},
+  // components: {},
   // 计算
   computed: {},
   // 数据监听

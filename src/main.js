@@ -8,7 +8,9 @@ import { request, requestAll } from './com/http.js'
 import Api from './com/api.js'
 
 import '@/less/com.less'
-// import config from './com/config.js'
+// import pdfView from 'vue-pdf'
+import pdfView from 'pdfvuer'
+Vue.component('pdf', pdfView)
 
 // 使用 路由
 Vue.use(Router)

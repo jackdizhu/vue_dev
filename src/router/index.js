@@ -11,6 +11,7 @@ import VPost from '@/page/v_test/VPost.vue'
 import iframeChild from '@/components/iframeChild'
 import iframeVue from '@/components/iframeVue'
 import upload from '@/components/webUpload'
+import pdfView from '@/components/pdf-view'
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ export default new Router({
           path: '/page/upload',
           name: 'upload',
           component: upload
+        },
+        {
+          path: '/page/pdfView',
+          name: 'pdfView',
+          component: pdfView
         }
       ]
     }
